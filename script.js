@@ -1,23 +1,17 @@
-function downloadVideo() {
- var videoURL = document.getElementById('videoURL').value;
- var videoID = getYoutubeVideoID(videoURL);
-  
- if (videoID) {
-    var downloadLink = document.getElementById('downloadLink');
-    downloadLink.href = 'https://www.y2mate.com/mates/mp4/' + videoID;
-    downloadLink.click();
- } else {
-    alert('Please enter a valid Youtube video URL');
- }
-}
+const products = document.querySelectorAll(".add-to-cart");
+const cartItems = document.getElementById("cart-items");
+const total = document.getElementById("total");
+let cartTotal = 0;
 
-function getYoutubeVideoID(url) {
- var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
- var match = url.match(regExp);
-  
- if (match && match[2].length == 11) {
-    return match[2];
- } else {
-    return null;
- }
-}
+products.forEach((product) => {
+  product.addEventListener("click", function () {
+    const price = parseFloat(this.getAttribute("data-price"));
+    cartTotal += price;
+    cartItems.innerHTML += `<li>${this.parentElement.querySelector("h2").textContent} - $${price.toFixed(2)}</li>`;
+    total.textContent = cartTotal.toFixed(2);
+  });
+});
+
+document.getElementById("checkout").addEventListener("click", function () {
+  // Aquí agregarías lógica para procesar el pago, como redirigir a una pasarela de pago.
+});
