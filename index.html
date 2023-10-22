@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title>Youtube Video Downloader</title>
- <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
- <h1>Youtube Video Downloader</h1>
- <input type="text" id="videoURL" placeholder="Enter Youtube video URL">
- <button onclick="downloadVideo()">Download</button>
- <a id="downloadLink" download="video.mp4"></a>
- <script src="script.js"></script>
+  <h1>Punto de Venta (TPV)</h1>
+  <div id="products">
+    <!-- Aquí puedes listar tus productos con botones para agregarlos al carrito -->
+    <div class="product">
+      <h2>Producto 1</h2>
+      <p>Precio: $10.00</p>
+      <button class="add-to-cart" data-price="10.00">Agregar al Carrito</button>
+    </div>
+    <!-- Más productos aquí -->
+  </div>
+  <div id="cart">
+    <h2>Carrito de Compras</h2>
+    <ul id="cart-items">
+      <!-- Los elementos seleccionados se mostrarán aquí -->
+    </ul>
+    <p>Total: $<span id="total">0.00</span></p>
+    <button id="checkout">Realizar Pago</button>
+  </div>
 </body>
+<script src="script.js"></script>
 </html>
